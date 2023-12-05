@@ -33,7 +33,8 @@ public class Controller_juego_database : MonoBehaviour
 
     private void On_Todos_los_juegadores_terminaron()
     {
-
+        //Colocar el codigo para mostrar la escena final
+        //Mostrar la escena del final
     }
 
     private void FixedUpdate()
