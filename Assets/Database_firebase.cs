@@ -9,6 +9,8 @@ public class Database_firebase : MonoBehaviour
     private DatabaseReference databaseReference;
     private string userID;
     public int id;
+    public bool activo;
+    public bool juego_enviado;
     public int[] posiciones_;
     // Start is called before the first frame update
     private void Awake()
@@ -18,7 +20,7 @@ public class Database_firebase : MonoBehaviour
     void Start()
     {
         databaseReference = FirebaseDatabase.DefaultInstance.RootReference;
-        Invoke("Crear_jugador", 1f);
+        
         //GetUserInfo();
     }
 
@@ -27,17 +29,26 @@ public class Database_firebase : MonoBehaviour
     {
         
     }
+    public void Crear_jugador_()
+    {
+        Invoke("Crear_jugador", 1f);
+    }
     private void Create_user()
     {
         User newuser = new User("Manuel", "Loayza", 109462);
         string json = JsonUtility.ToJson(newuser);
         databaseReference.Child("users").Child(userID).SetRawJsonValueAsync(json);
     }
-
-    public void Crear_jugador()
+    public void Actualizar_jugador()
+    {
+        Jugador jugador = new Jugador(id, posiciones_,activo,juego_enviado);
+        string json = JsonUtility.ToJson(jugador);
+        databaseReference.Child("Partida").Child("Jugador_" + id).SetRawJsonValueAsync(json);
+    }
+    private void Crear_jugador()
     {
         
-        Jugador jugador = new Jugador(id, posiciones_);
+        Jugador jugador = new Jugador(id, posiciones_,activo,juego_enviado);
         string json = JsonUtility.ToJson(jugador);
         databaseReference.Child("Partida").Child("Jugador_" + id).SetRawJsonValueAsync(json);
     }
@@ -142,9 +153,11 @@ public class Jugador
     public bool juego_enviado;
     public int[] posiciones=new int[3];
 
-    public Jugador(int id_,int[] posiciones_)
+    public Jugador(int id_,int[] posiciones_,bool activo_,bool juego_enviado_)
     {
         id = id_;
         posiciones = posiciones_;
+        activo = activo_;
+        juego_enviado = juego_enviado_;
     }
 }
