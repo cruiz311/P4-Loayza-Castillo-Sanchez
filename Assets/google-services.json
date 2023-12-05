@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "950393399008",
+    "firebase_url": "https://pa4moviles-default-rtdb.firebaseio.com",
+    "project_id": "pa4moviles",
+    "storage_bucket": "pa4moviles.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:950393399008:android:bc730a0c55a68c1bfe5285",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.P4_Moviles"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIa-MD80REbKfLiU-KUXM-TDLDNNzh2xA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
